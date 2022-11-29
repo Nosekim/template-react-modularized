@@ -1,24 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "../pages/Home";
+import { Home, About } from "../pages";
+import Route from "../../../routes/route";
+import { Switch } from "react-router-dom";
 
 export function RoutesGR() {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-          </ul>
-        </nav>
-        <Switch>
-          <Route path="/about">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/about" exact component={About} />
+    </Switch>
   );
 }
